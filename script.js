@@ -19,7 +19,7 @@ plusBtnEconomy.addEventListener('click', function () {
 });
 
 
-
+// -------------------Counting the quantity of ticket-------------------
 function Counter(isIncrease, airClass) {
     let newCounter;
     let counter = parseInt(document.getElementById(airClass).value);
@@ -38,16 +38,18 @@ function Counter(isIncrease, airClass) {
     calculateTotal();
 }
 
+// ----------------------Calculating the amounts to pay---------------------
 function calculateTotal() {
-    let currentCountFirstClass = parseInt(document.getElementById('first-class-count').value);
-    let currentCountEconomyClass = parseInt(document.getElementById('economy-class-count').value)
-    let subtotal = currentCountFirstClass * 150 + currentCountEconomyClass * 100;
-    let vat = subtotal * 0.1;
-    let grandTotal = vat + subtotal;
+    const currentCountFirstClass = parseInt(document.getElementById('first-class-count').value);
+    const currentCountEconomyClass = parseInt(document.getElementById('economy-class-count').value)
+    const subtotal = currentCountFirstClass * 150 + currentCountEconomyClass * 100;
+    const vat = subtotal * 0.1;
+    const grandTotal = vat + subtotal;
     appendingAmounts(subtotal, vat, grandTotal, currentCountEconomyClass, currentCountFirstClass);
 
 }
 
+// ------------------------Adding the costs to the DOM----------------------------
 function appendingAmounts(sub, vat, tot, economyCount, firsCount) {
     document.getElementById('subtotal').innerText = sub;
     document.getElementById('vat').innerText = vat;
